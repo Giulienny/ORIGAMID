@@ -31,7 +31,7 @@ h3 {
 }
 
 p {
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 1.3;
 }
 
@@ -50,11 +50,17 @@ p {
 
 .menu a {
     background: white;
-    padding: 15px 30px;
+    padding: 1rem 2rem;
     border-radius: 4px;
     color: black;
     text-transform: uppercase;
     display: block;
+    border: 2px solid white;
+}
+
+.menu a:hover {
+    border-color: #e21;
+
 }
 
 .conteudo {
@@ -74,7 +80,12 @@ p {
     justify-items: end;
 }
 
-.detalhe {
+.introducao h1 {
+    font-size: 2rem;
+}
+
+.introducao::before {
+    content: " ";
     width: 60px;
     height: 4px;
     background-color: red;
@@ -83,21 +94,32 @@ p {
     right: -30px;
 }
 
+.introducao-cover img {
+    object-fit: cover;
+    height: 100%;
+}
+
 .botao {
     background: red;
     color: white;
-    padding: 15px 30px;
+    padding: 1rem 2rem;
     border-radius: 4px;
     text-transform: uppercase;
 }
 
+.botao:hover {
+    background: #900;
+}
+
 .subtitulo {
-    font-size: 64px;
+    font-size: 4rem;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.2);
     text-align: right;
     padding: 40px;
     align-self: center;
+    background-image: url(onda.svg);
+    /* word-break: break-all;  para quebrar a palavra qd fica responsivo */
 }
 
 .vantagens {
@@ -112,6 +134,54 @@ p {
     padding: 20px;
 }
 
+.vantagens-itens:nth-child(odd) {
+    background: #f7f7f7;
+}
+
+.vantagens-itens:hover {
+    border-left: 4px solid #e21;
+}
+
 .vantagens-itens p {
     grid-column: 2;
+}
+
+.rodape {
+    background: white;
+    text-align: center;
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+    .conteudo-vantagens {
+        grid-template-columns: 1fr;
+    }  /*  neste caso, mantém a primeira coluna qd faz a parte responsiva e quebra a segunda coluna para caber na pág web  */
+    .subtitulo {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        gap: 30px;
+        margin-top: 20px;
+    }
+    .header {
+        gap: 30px;
+    }
+    .conteudo {
+        grid-template-columns: 1fr;
+    }
+    .introducao {
+        text-align: left;
+        justify-items: start;
+    }
+    .introducao::before {
+        display: none;
+    }
+    .subtitulo {
+        font-size: 3rem;
+    }
 }
